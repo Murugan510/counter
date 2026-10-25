@@ -1,0 +1,22 @@
+<h1>Todo App</h1>
+<div>
+  <input
+    type="text"
+    placeholder="What to do Next?"
+    [ngModel]="task()"
+    (ngModelChange)="task.set($event)"
+    (keydown.enter)="handleAdd()"
+    aria-label="Todo task"
+  />
+  <button type="button" (click)="handleAdd()" [disabled]="!task().trim()">Add</button>
+</div>
+
+<ul>
+  @for (task of taskList(); track $index) {
+    <li>
+        <span><input type="checkbox" (change)="handleStatusChange($event,$index)" ></span>
+        <span [class.class-completed]="task.status === 'completed' ">{{ task.name }}</span>
+        <span (click)="RemoveItem($index)"> Remove </span>
+    </li>
+  }
+</ul>
