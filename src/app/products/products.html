@@ -1,0 +1,19 @@
+<div>
+
+<div>
+    <input type="text" placeholder="Search by Product Title"  
+    [ngModel]="searchInput()" 
+    > 
+</div>
+/<ul>
+  @for (product of products(); track $index) {
+    <li>
+ <h3>{{ product?.title }}</h3>
+        <p>{{ product?.description }}</p>
+        <p>category : {{ product?.category }}</p>
+    </li>
+       
+    }
+</ul>
+  
+</div>
